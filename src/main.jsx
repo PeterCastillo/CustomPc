@@ -1,10 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import App from './App'
-import './index.css'
+import Home from './pages/Home'
+import Procesador from './pages/Procesador'
+import ProcesadorType from './pages/ProcesadorType'
+import Ram from './pages/Ram'
+import Start from './pages/Start'
+import TarjetaGrafica from './pages/TarjetaGrafica'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <BrowserRouter>
+        <Routes>
+            <Route path='/' element={<App/>}>
+                <Route index element={<Home/>}/>
+                <Route path='buildPc' element={<Start/>}>
+                    <Route path='TipoProcesador' index element={<ProcesadorType/>}/>
+                    <Route path='Procesador' index element={<Procesador/>}/>
+                    <Route path='TarjetaGrafica' index element={<TarjetaGrafica/>}/>
+                    <Route path='Ram' index element={<Ram/>}/>
+                </Route>
+            </Route>
+        </Routes>
+    </BrowserRouter>
 )
