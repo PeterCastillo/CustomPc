@@ -1,17 +1,20 @@
-import { Outlet, useSearchParams } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { filterOnChange, resetFilter } from "../actions/filterActions";
 
 const Start = () => {
 
-    let [ searchParamas , setSearchParamas ] = useSearchParams();
+    const state = useSelector(state => state)
+    const dispach = useDispatch()
+    const { filter } = state.filter
 
-    const handleChange = (e) => {
-        let filter = e.target.value
-        if(filter){
-            setSearchParamas({filter})
-        } else {
-            setSearchParamas({})
-        }
+    const navigate = useNavigate()
+
+    const handleBack = () => {
+        dispach(resetFilter())
+        navigate(-1)
     }
+
 
     return (
         <div className="seccion__build">
@@ -20,10 +23,11 @@ const Start = () => {
                     type="text" 
                     className="seccion__build__form__input"
                     placeholder="Ingresa pieza"
-                    onChange={handleChange}
-                    value={searchParamas.get("filter") || "" }
+                    name="filter"
+                    onChange={(e)=>dispach(filterOnChange(e.target.value))}
+                    value={filter}
                 />
-                <button className="seccion__build__form__btn">←</button>
+                <button className="seccion__build__form__btn" onClick={handleBack}>←</button>
             </div>
             <Outlet/>
         </div>

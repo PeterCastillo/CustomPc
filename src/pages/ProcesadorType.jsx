@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom"
+import {  useDispatch, useSelector } from "react-redux"
 import TypeProcesador from "../components/TypeProcesador"
+import { resetFilter } from "../actions/filterActions"
 
 const ProcesadorType = () => {
+
+    const state = useSelector(state => state)
+    const dispach = useDispatch()
+    const { filter } = state.filter
 
     const procesadorTipo = [
         {
@@ -18,8 +24,12 @@ const ProcesadorType = () => {
 
     return (
         <div className="components">
-            { procesadorTipo.map(item => (
-                <TypeProcesador key={item.id} item={item} btn={<Link to={`Procesador`}>Selecionar</Link>} />
+            { procesadorTipo.filter(item => {
+                let name = item.marca.toLowerCase();
+                return (filter.length  > 0)? name.startsWith(filter.toLowerCase()) : true
+            })
+            .map(item => (
+                <TypeProcesador key={item.id} item={item} btn={<Link to={`Procesador`} onClick={()=>dispach(resetFilter())} >Selecionar</Link> } />
             ))
             }
         </div>

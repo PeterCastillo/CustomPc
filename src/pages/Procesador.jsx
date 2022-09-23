@@ -1,7 +1,13 @@
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { resetFilter } from "../actions/filterActions"
 import Component from "../components/Component"
 
 const Procesador = () => {
+
+    const state = useSelector(state => state)
+    const dispach = useDispatch()
+    const { filter } = state.filter
 
     const componentes = [
         {
@@ -42,11 +48,15 @@ const Procesador = () => {
     ]
     
     return (
-
         <div className="components">
-            {componentes.map(item => (
-                <Component key={item.id} item={item} btn={<Link to={`TarjetaGrafica`}>Seleccionar</Link>}/>
-            ))}
+            { componentes.filter(item => {
+                let name = item.nombre.toLowerCase();
+                return (filter.length  > 0)? name.startsWith(filter.toLowerCase()) : true
+            })
+            .map(item => (
+                <Component key={item.id} item={item} btn={<Link to={`TarjetaGrafica`} onClick={()=>dispach(resetFilter())} >Seleccionar</Link>}/>
+            ))
+            }
         </div>
     )
 }
