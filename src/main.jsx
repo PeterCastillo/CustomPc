@@ -8,6 +8,7 @@ import ProcesadorType from './pages/ProcesadorType'
 import Ram from './pages/Ram'
 import Start from './pages/Start'
 import TarjetaGrafica from './pages/TarjetaGrafica'
+import './style/normalize.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>

@@ -1,12 +1,15 @@
 import { Outlet } from "react-router-dom"
+import './style/seccion.scss'
 
 function App() {
 
   return (
-    <div>
-      <h1>Crea tu propia PC</h1>
-      <Outlet/>
-    </div>
+    <section className="seccion__container">
+      <div className="seccion">
+        <span className="seccion__title">Diseña tu propia PC</span>
+        <Outlet/>
+      </div>
+    </section>
   )
 }
 

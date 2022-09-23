@@ -1,0 +1,184 @@
+@import './vars';
+
+.seccion__container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    font-family: $letter-style;
+    .seccion {
+        margin: auto;
+        flex-basis: 1000px;
+        height: 533.19px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        &__title {
+            background-color: $color-background-item;
+            display: inline-block;
+            width: 100%;
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+            color: $color-letter;
+            padding: 0.8rem;
+        }
+        &__home {
+            background-color: $color-background;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &__start {
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: bold;
+                padding: 0.8rem 1.1rem;
+                cursor: pointer;
+                background-color: white;
+                color: $color-background-item;
+                border: none;
+                border: solid 2px white;
+                transition: all 150ms ease;
+                &:hover {
+                    color: $color-letter;
+                    background-color: $color-background-item;
+                    transform: scale(1.1);
+                }
+            }
+        }
+        &__build {
+            background-color: $color-background;
+            flex-grow: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            &__form {
+                display: flex;
+                justify-content: space-between;
+                height: 2rem;
+                margin-bottom: 1rem;
+                &__input {
+                    max-width: 10rem;
+                    padding: 0.2rem 0.5rem;
+                    outline: none;
+                }
+                &__btn {
+                    text-decoration: none;
+                    font-size: 18px;
+                    font-weight: bold;
+                    padding: 0rem 0.8rem;
+                    cursor: pointer;
+                    background-color: white;
+                    color: $color-background-item;
+                    border: none;
+                    transition: all 150ms ease;
+                    box-sizing: border-box;
+                    border: solid 2px white;
+                    &:hover {
+                        box-sizing: border-box;
+                        color: $color-letter;
+                        border: solid 2px white;
+                        background-color: $color-background-item;
+                    }
+                }
+            }
+            .components {
+                flex-grow: 1;
+                padding: 0rem 0rem 1rem 0rem 0rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(13rem,1fr));
+                gap: 1rem;
+                height: 20rem;
+                overflow-x:auto;
+                
+                &__component {
+                    height: 20rem;
+                    background-color: $color-letter;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0.5rem;
+                    background-color: $color-letter;
+                    justify-content: space-between;
+                    align-items: center;
+                    &__img {
+                        width: 8.5rem;
+                        height: 8.5rem;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    &__info {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5rem;
+                        &__name {
+                            text-align: center;
+                            font-size: 14px;
+                        }
+                        &__btn {
+                            height: 1.65rem;
+                            border: solid 2px $color-background;
+                            background-color: $color-letter;
+                            cursor: pointer;
+                            a{
+                                color: $color-background;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                text-decoration: none;
+                                width: 100%;
+                                height: 100%;
+                            }
+                            &:hover {
+                                background-color: $color-background;
+                                a{
+                                    color: $color-letter;
+                                }
+                            }
+                        }
+                    }
+                    &__typeImg {
+                        height: 12rem;
+                        width: 12rem;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    &__typeName {
+                        font-weight: bold;
+                        letter-spacing: 0.2rem;
+                        font-size: 1.5rem;
+                    }
+                    &__typebtn {
+                        width: 100%;
+                        height: 1.65rem;
+                        border: solid 2px $color-background;
+                        background-color: $color-letter;
+                        cursor: pointer;
+                        a{
+                            color: $color-background;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-decoration: none;
+                            width: 100%;
+                            height: 100%;
+                        }
+                        &:hover {
+                            background-color: $color-background;
+                            a{
+                                color: $color-letter;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

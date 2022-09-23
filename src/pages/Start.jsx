@@ -1,11 +1,32 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useSearchParams } from "react-router-dom"
 
 const Start = () => {
+
+    let [ searchParamas , setSearchParamas ] = useSearchParams();
+
+    const handleChange = (e) => {
+        let filter = e.target.value
+        if(filter){
+            setSearchParamas({filter})
+        } else {
+            setSearchParamas({})
+        }
+    }
+
     return (
-        <>
-            <h1>Empesaste a crear tu PC selecciona los componentes</h1>
+        <div className="seccion__build">
+            <div className="seccion__build__form">
+                <input 
+                    type="text" 
+                    className="seccion__build__form__input"
+                    placeholder="Ingresa pieza"
+                    onChange={handleChange}
+                    value={searchParamas.get("filter") || "" }
+                />
+                <button className="seccion__build__form__btn">←</button>
+            </div>
             <Outlet/>
-        </>
+        </div>
     )
 }
 
