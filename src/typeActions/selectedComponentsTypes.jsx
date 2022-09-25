@@ -1,0 +1,2 @@
+export const ADD__COMPONENT = "ADD__COMPONENT"
+export const DELETE__COMPONENT = "DELETE__COMPONENT"

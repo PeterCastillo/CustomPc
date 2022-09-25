@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { filterOnChange, resetFilter } from "../actions/filterActions";
+import { delComponent } from "../actions/SelectedComponentsActions";
 
 const Start = () => {
 
@@ -12,6 +13,7 @@ const Start = () => {
 
     const handleBack = () => {
         dispach(resetFilter())
+        dispach(delComponent())
         navigate(-1)
     }
 
