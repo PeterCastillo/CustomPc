@@ -14,22 +14,45 @@
         padding: 1rem;
         display: flex;
         flex-direction: column;
+        position: relative;
+        &__open {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: $color-background;
+            width: 2.5rem;
+            height: 8rem;
+            border-radius: 2rem 0rem 0rem 2rem ;
+            top: 0;
+            bottom: 0;
+            margin-top: auto ;
+            margin-bottom: auto ;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
         &__selected {
             position: fixed;
             top: 0;
             right: 0;
             display: flex;
             flex-direction: row-reverse;
+            display: none;
             &__black {
                 background: linear-gradient(rgba(5, 7, 12, 0.6),rgba(5, 7, 12, 0.6));
                 width: calc( 100vw - 200px);
-                display: none;
             }
             &__selected {
                 height: 100vh;
                 background-color: $color-background;
                 position: relative;
-                left: 100%;
+                width: 200px;
+                transition: all 350ms ease;
                 &__open {
                     position: absolute;
                     background-color: $color-background;
@@ -52,13 +75,19 @@
             }
         }
         &__selected-toggle {
-            &__toggle {
-                width: 200px;
-                left: 0%;
-            }
-            &__background {
-                display: block;
-            }
+            display: block;
+            display: flex;
+            animation: open 250ms ease;
+                @keyframes open {
+                    0% {
+                        transform: translate3d(100%,0,0);
+                    }
+
+                
+                    100% {
+                        transform: translate3d(0,0,0);
+                    }
+                }
         }
         &__title {
             background-color: $color-background-item;
@@ -229,9 +258,4 @@
         }
 
     }
-}
-
-.toggle {
-    width: 0px;
-    left: 100%;
 }

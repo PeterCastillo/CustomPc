@@ -26,14 +26,15 @@ function App() {
       <div className="seccion">
         <span className="seccion__title">Diseña tu propia PC</span>
         <Outlet/>
-        <div className={`seccion__selected ${toggle? 'seccion__selected-toggle': ''}`}>
-          <div className={`seccion__selected__selected ${toggle? 'seccion__selected-toggle__toggle': ''}`}>
-            <div className="seccion__selected__selected__open" onClick={()=>handleOpen()}>⬅</div>
+        <div className="seccion__open" onClick={()=>handleOpen()}>←</div>
+        <div className={`seccion__selected  ${toggle? 'seccion__selected-toggle': ''}`}>
+          <div className={`seccion__selected__selected  ${toggle? 'seccion__selected-toggle__toggle': ''}`}>
+            <div className="seccion__selected__selected__open" onClick={()=>handleOpen()}>→</div>
             {producst.length > 0 ?  producst.map(item=>
               <h1 key={item.id}>{item.img}</h1>)
               : <></>}
           </div>
-          <div className={`seccion__selected__black ${toggle? 'seccion__selected-toggle__background': ''}`} onClick={()=>handleClose()}></div>
+          <div className={`seccion__selected__black  ${toggle? 'seccion__selected-toggle__background': ''}`} onClick={()=>handleClose()}></div>
         </div>
       </div>
     </section>
