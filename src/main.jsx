@@ -10,6 +10,7 @@ import ProcesadorType from './pages/ProcesadorType'
 import Ram from './pages/Ram'
 import Start from './pages/Start'
 import TarjetaGrafica from './pages/TarjetaGrafica'
+import Comprar from './pages/Comprar'
 import './style/normalize.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                         <Route path='TarjetaGrafica' index element={<TarjetaGrafica/>}/>
                         <Route path='Ram' index element={<Ram/>}/>
                     </Route>
+                    <Route path='PC'  element={<Comprar/>}/>
                 </Route>
             </Routes>
         </Provider>

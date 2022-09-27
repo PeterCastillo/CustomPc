@@ -5,6 +5,7 @@ const TarjetaGrafica = () => {
         <>
             <h1>Estas en TarjetaGrafica</h1>
             <Link to={`Ram`}>Selecionar Ram</Link>
+            <Link to={`/PC`}>Comprar</Link>
         </>
     )
 }
